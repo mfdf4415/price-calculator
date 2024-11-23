@@ -7,8 +7,13 @@ import (
 	"os"
 )
 
-func ReadLines(fileName string) ([]string, error) {
-	file, err := os.Open(fileName)
+type FileManager struct {
+	InputFileName  string
+	OutputFileName string
+}
+
+func (manager FileManager) ReadLines() ([]string, error) {
+	file, err := os.Open(manager.InputFileName)
 	if err != nil {
 		return nil, errors.New("file not open baby")
 	}
@@ -31,13 +36,20 @@ func ReadLines(fileName string) ([]string, error) {
 
 }
 
-func WriteJSONToFile(fileName string, data any) error {
+func (manager FileManager) WriteJSONToFile(data any) error {
 	json, err := json.Marshal(data)
 
 	if err != nil {
 		return errors.New("cant marshal json baby")
 	}
-	
-	return os.WriteFile(fileName, json, 0644)
 
+	return os.WriteFile(manager.OutputFileName, json, 0644)
+
+}
+
+func New(inputName, outputName string) FileManager {
+	return FileManager{
+		inputName,
+		outputName,
+	}
 }

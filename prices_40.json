@@ -1,1 +1,1 @@
-{"TaxRate":0.4,"Prices":[10.5,8.5,15,13.6],"TaxIncludePrices":{" 8":"12","10":"15","14":"19","15":"21"}}
+{"IOManager":{"InputName":"prices.txt","OutputName":"prices_40.json"},"TaxRate":0.4,"Prices":[10.5,8.5,18,13.6],"TaxIncludePrices":{" 8":"12","10":"15","14":"19","18":"25"}}
